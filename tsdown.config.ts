@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsdown'
+import ApiSnapshot from 'tsnapi/rolldown'
 
 export default defineConfig({
   dts: {
@@ -12,4 +13,7 @@ export default defineConfig({
   attw: {
     profile: 'esm-only',
   },
+  plugins: [
+    ApiSnapshot(),
+  ],
 })
