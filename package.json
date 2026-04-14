@@ -1,0 +1,58 @@
+{
+  "name": "dirclone",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.33.0",
+  "description": "A simple CLI tool to clone a directory from a URL into a specified output directory.",
+  "author": "zjy040525 <jiayao.zhao@proton.me>",
+  "license": "MIT",
+  "homepage": "https://github.com/zjy040525/dirclone#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zjy040525/dirclone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zjy040525/dirclone/issues"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./run": "./dist/run.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dirclone": "./dist/run.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "node ./src/run.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "release": "bumpp",
+    "prepublishOnly": "pnpm run build",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.2.0",
+    "cac": "^7.0.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^8.2.0",
+    "@arethetypeswrong/core": "^0.18.2",
+    "@types/node": "^25.5.0",
+    "@typescript/native-preview": "7.0.0-dev.20260328.1",
+    "bumpp": "^11.0.1",
+    "eslint": "^10.2.0",
+    "eslint-plugin-format": "^2.0.1",
+    "publint": "^0.3.18",
+    "tsdown": "^0.21.7",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}
