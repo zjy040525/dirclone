@@ -11,7 +11,7 @@ cli
   .command('[url]', 'Clone a git repository')
   .option(
     '-r, --root <path>',
-    'Base directory to clone into (default: ./)',
+    'Root directory to clone into (default: ./)',
   )
   .option(
     '-o, --output <path>',

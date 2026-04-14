@@ -63,11 +63,12 @@ export async function resolveOptions(options: Options): Promise<ResolvedOptions>
   let root: Options['root'] | symbol = options.root
 
   if (!root) {
+    const defaultRoot = './'
     root = yes
-      ? './'
+      ? defaultRoot
       : await text({
-          message: 'Please enter the base directory to clone into (default: ./):',
-          defaultValue: './',
+          message: 'Please enter the root directory to clone into (default: ./):',
+          defaultValue: defaultRoot,
           placeholder: 'current directory',
         })
     if (isCancel(root)) {
@@ -80,11 +81,12 @@ export async function resolveOptions(options: Options): Promise<ResolvedOptions>
   let output: Options['output'] | symbol = options.output
 
   if (!output) {
+    const defaultDir = parseDir(url)
     output = yes
-      ? parseDir(url)
+      ? defaultDir
       : await text({
           message: 'Please enter the output directory for the cloned repository (default: derived from the url):',
-          defaultValue: parseDir(url),
+          defaultValue: defaultDir,
           placeholder: 'derived from the url',
         })
     if (isCancel(output)) {
