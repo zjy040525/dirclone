@@ -1,0 +1,4 @@
+remote: Counting objects: 25%
+Compressing objects: 50%
+Receiving objects: 101%
+Resolving deltas: 100%

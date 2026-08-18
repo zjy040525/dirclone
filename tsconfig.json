@@ -7,7 +7,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "types": ["node"],
-    "allowImportingTsExtensions": true,
     "strict": true,
     "noUnusedLocals": true,
     "declaration": true,
@@ -16,9 +15,5 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
-  },
-  "include": [
-    "src",
-    "tests"
-  ]
+  }
 }

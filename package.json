@@ -2,7 +2,6 @@
   "name": "dirclone",
   "type": "module",
   "version": "0.1.0",
-  "packageManager": "pnpm@10.33.0",
   "description": "A simple CLI tool to clone a directory from a URL into a specified output directory.",
   "author": "zjy040525 <jiayao.zhao@proton.me>",
   "license": "MIT",
@@ -14,13 +13,16 @@
   "bugs": {
     "url": "https://github.com/zjy040525/dirclone/issues"
   },
+  "imports": {
+    "#dirclone": "./src/index.ts"
+  },
   "exports": {
     ".": "./dist/index.mjs",
-    "./run": "./dist/run.mjs",
+    "./cli": "./dist/cli.mjs",
     "./package.json": "./package.json"
   },
   "bin": {
-    "dirclone": "./dist/run.mjs"
+    "dirclone": "bin/dirclone.mjs"
   },
   "files": [
     "dist"
@@ -30,30 +32,42 @@
   },
   "scripts": {
     "build": "tsdown",
-    "dev": "node ./src/run.ts",
+    "dev": "tsx ./src/cli.ts",
+    "schema": "tsx ./scripts/generate-schema.ts",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "release": "bumpp",
-    "prepublishOnly": "pnpm run build",
+    "prepublishOnly": "pnpm run build && pnpm run schema",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=11.22.0 <12.0.0",
+      "onFail": "download"
+    }
+  },
   "dependencies": {
-    "@clack/prompts": "^1.2.0",
-    "cac": "^7.0.0"
+    "ansis": "catalog:prod",
+    "cac": "catalog:prod",
+    "cli-progress": "catalog:prod",
+    "deepmerge": "catalog:prod",
+    "restore-cursor": "catalog:prod",
+    "ts-json-schema-generator": "catalog:prod",
+    "unconfig": "catalog:prod"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^8.2.0",
-    "@arethetypeswrong/core": "^0.18.2",
-    "@types/node": "^25.6.0",
-    "@typescript/native-preview": "7.0.0-dev.20260328.1",
-    "bumpp": "^11.0.1",
-    "eslint": "^10.2.0",
-    "eslint-plugin-format": "^2.0.1",
-    "publint": "^0.3.18",
-    "tsdown": "^0.21.8",
-    "tsnapi": "^0.1.2",
-    "typescript": "^6.0.2",
-    "vitest": "^4.1.4"
+    "@antfu/eslint-config": "catalog:dev",
+    "@types/cli-progress": "catalog:types",
+    "@types/node": "catalog:types",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:dev",
+    "eslint-plugin-format": "catalog:dev",
+    "publint": "catalog:dev",
+    "tsdown": "catalog:build",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "vitest": "catalog:testing"
   }
 }

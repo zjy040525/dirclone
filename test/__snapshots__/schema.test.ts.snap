@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`schemaString > matches the generated schema snapshot 1`] = `
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "definitions": {},
+  "properties": {
+    "$schema": {
+      "type": "string",
+    },
+    "cwd": {
+      "type": "string",
+    },
+    "root": {
+      "type": "string",
+    },
+  },
+  "type": "object",
+}
+`;
