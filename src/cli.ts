@@ -10,7 +10,7 @@ const cli = cac('dirclone')
 
 cli
   .command('[url]', 'Clone a repository from a Git URL')
-  .option('--root <root>', 'Clone repositories under this directory')
+  .option('-r, --root <root>', 'Clone repositories under this directory')
   .action(async (url: string, options: CliOptions) => {
     options.url = url
 

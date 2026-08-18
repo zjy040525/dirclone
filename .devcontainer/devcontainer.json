@@ -23,7 +23,8 @@
         "vitest.explorer",
         "redhat.vscode-yaml",
         "FanaticPythoner.better-todo-tree",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "github.vscode-github-actions"
       ]
     }
   }

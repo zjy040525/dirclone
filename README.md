@@ -1,25 +1,41 @@
 # dirclone
 
-A starter for creating a TypeScript package.
+A simple CLI tool to clone a directory from a URL into a specified output directory.
+
+## Usage
+
+```bash
+npx dirclone [url] [options]
+```
+
+### CLI Options
+
+The following options are available when running the CLI:
+
+| Option          | Short Flag | Description                  | Default Value            |
+| --------------- | ---------- | ---------------------------- | ------------------------ |
+| `--root <path>` | `-r`       | Root directory to clone into | `./` (current directory) |
+| `--help`        | `-h`       | Display help for command     |                          |
+| `--version`     | `-v`       | Display version number       |                          |
 
 ## Development
 
 - Install dependencies:
 
 ```bash
-npm install
+pnpm install
 ```
 
 - Run the unit tests:
 
 ```bash
-npm run test
+pnpm run test
 ```
 
 - Build the library:
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## IDE Support (auto fix on save)
