@@ -1,7 +1,7 @@
 {
   "name": "dirclone",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple CLI tool to clone a directory from a URL into a specified output directory.",
   "author": "zjy040525 <jiayao.zhao@proton.me>",
   "license": "MIT",
