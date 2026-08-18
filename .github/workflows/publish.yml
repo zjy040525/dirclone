@@ -37,4 +37,4 @@ jobs:
           PACKAGE_VERSION="$(node -p "require('./package.json').version")"
           test "v$PACKAGE_VERSION" = "$GITHUB_REF_NAME"
 
-      - run: pnpm publish
+      - run: pnpm publish --no-git-checks
