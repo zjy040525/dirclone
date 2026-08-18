@@ -1,36 +1,29 @@
-import type { Options } from './index.ts'
+import type { CliOptions } from './config'
 import process from 'node:process'
-import { log } from '@clack/prompts'
 import { cac } from 'cac'
-import pkg from '../package.json' with { type: 'json' }
-import { create } from './index.ts'
+import restoreCursor from 'restore-cursor'
+import pkgJson from '../package.json'
+import { clone } from './commands/clone'
+import { resolveConfig } from './config'
 
-const cli = cac(pkg.name).version(pkg.version).help()
+const cli = cac('dirclone')
 
 cli
-  .command('[url]', 'Clone a git repository')
-  .option(
-    '-r, --root <path>',
-    'Root directory to clone into (default: ./)',
-  )
-  .option(
-    '-o, --output <path>',
-    'Output directory for the cloned repository (default: derived from the url)',
-  )
-  .option(
-    '-y, --yes',
-    'Skip all prompts and use default values',
-  )
-  .action((url: string | undefined, options: Options) => create(url, options))
+  .command('[url]', 'Clone a repository from a Git URL')
+  .option('-r, --root <root>', 'Clone repositories under this directory')
+  .action(async (url: string, options: CliOptions) => {
+    options.url = url
 
-export async function runCLI(): Promise<void> {
-  cli.parse(process.argv, { run: false })
+    const resolved = await resolveConfig(options)
 
-  try {
-    await cli.runMatchedCommand()
-  }
-  catch (error) {
-    log.error(String(error))
-    process.exit(1)
-  }
-}
+    const exitCode = await clone(resolved)
+
+    process.exit(exitCode)
+  })
+
+cli.help()
+cli.version(pkgJson.version)
+
+cli.parse()
+
+restoreCursor()

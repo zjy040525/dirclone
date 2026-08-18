@@ -1,0 +1,3 @@
+remote: Counting objects: 1%
+error: first failure
+fatal: final failure
