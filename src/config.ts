@@ -12,7 +12,7 @@ export async function resolveConfig(options: CliOptions): Promise<CommonOptions>
     sources: [
       {
         files: ['.dirclonerc'],
-        extensions: ['json'],
+        extensions: ['json', ''],
       },
     ],
     cwd: options.cwd || process.cwd(),
