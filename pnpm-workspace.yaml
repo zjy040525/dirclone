@@ -6,7 +6,7 @@ catalogs:
   build:
     tsdown: ^0.22.14
   dev:
-    '@antfu/eslint-config': ^9.3.0
+    '@antfu/eslint-config': ^10.0.0
     bumpp: ^12.2.0
     eslint: ^10.8.1
     eslint-plugin-format: ^2.0.1
